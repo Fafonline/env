@@ -1,0 +1,2 @@
+TEST="hello"
+echo $(TEST)

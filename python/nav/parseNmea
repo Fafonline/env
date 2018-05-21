@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+
+optInput="i"
+optPlot="p"
+optSentence="s"
+optField="f"
+opstring="$optInput:$optPlot$optSentence:$optField:"
+
+optPlot_flag=0
+
+while getopts $opstring opt;do
+    case $opt in
+	$optInput) input=$OPTARG
+        ;;
+	$optSentence) sentence_type=$OPTARG
+        ;;
+	$optField) field=$OPTARG
+        ;;
+	$optPlot) optPlot_flag=1
+        ;;
+	*)
+        ;;
+    esac
+ done
+
+output=$input.$sentence_type.$field
+parseNmea.py $input $output $sentence_type $field;
+
+echo 
+if [ $optPlot_flag = 1 ] 
+then
+gnuplot -e "filename='$output'; set datafile separator ';';plot filename using 2 with lines title columnhead;pause -1";
+fi

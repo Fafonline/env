@@ -1,0 +1,115 @@
+#/usr/bin/sh
+
+#Create ssh server
+aptitude install openssh-server
+http://formation-debian.via.ecp.fr/ssh.html
+
+
+
+#Sudoers
+http://askubuntu.com/questions/147241/execute-sudo-without-password
+
+#static #ip
+https://forum.ubuntu-fr.org/viewtopic.php?id=624871
+iface eth0 inet static
+
+
+
+#sound #card
+
+https://pubs.vmware.com/workstation-9/index.jsp?topic=%2Fcom.vmware.ws.using.doc%2FGUID-191C9F3D-9F1A-4F75-A8EB-0C980340B944.html
+
+
+#jind #G2.5
+git clone https://F97376A@jind.magnetimarelli.com/fstash/scm/mm_src_linux/carplay
+branch: DEV_carplay
+
+#change group owner
+chown [-R] [user][:group] [file|directory]
+
+
+
+
+#vmost main audio 
+vmostctl -w 1 -i ffff.f4.02.0100.06.bbbb35
+vmostctl -w 1 -i ffff.f4.02.0100.06.bbbb150102300a0a0
+
+#capture stdin
+fd=dup(STDIN_FILENO);
+
+
+#extract h264 stream
+ffmpeg -i Serenity\ -\ HD\ DVD\ Trailer.mp4 -vcodec copy -an -bsf:v h264_mp4toannexb serenity_1280x720.h264
+
+
+#List all USB device
+lsusb -s
+
+#Push branch to Bare directory (if no commit)
+git push --set-upstream origin <branch name>
+
+#Git Set remote Repo
+git remote set-url origin https://github.com/USERNAME/OTHERREPOSITORY.git
+
+
+#Extract RPM without installing
+rpm2cpio myrpmfile.rpm | cpio -idmv
+
+
+#Redirectioni
+make 2>&1 | tee <file>
+
+#GNU make / GCC auto-dependencies
+http://scottmcpeak.com/autodepend/autodepend.html
+
+@($(CC) -MM -MT $@ $(CFLAGS) $(USERFLAGS) $(INCS) $*.cc > $*.d
+############################### INCLUDE DEPS ###################################################
+DEPS+=$(OBJS:.o=.d)
+DEPS+=$(PROTOC_OBJS:.o=.d)
+-include $(DEPS)
+
+
+### Undo commit
+$ git commit -m "Something terribly misguided"              (1)
+$ git reset HEAD~                                           (2)
+<< edit files as necessary >>                               (3)
+$ git add ...                                               (4)
+$ git commit -c ORIG_HEAD                                   (5)
+
+
+#gstreamer #graph 
+https://developer.ridgerun.com/wiki/index.php/How_to_generate_a_Gstreamer_pipeline_diagram_(graph)
+export GST_DEBUG_DUMP_DOT_DIR=/tmp/
+
+
+#grap dot
+http://archived.neilpahl.com/logs/diagram-tools/graphviz/2-creating-a-graph-from-a-dot-file-via-the-command-line/
+
+#tmux
+##Raccourcis de base
+<Ctrl> + <b> suivi de <c> : Créer un nouveau terminal dans la session tmux active
+<Ctrl> + <b> suivi de <n> : Switcher entre les différents terminaux de la session
+<Ctrl> + <b> suivi de <X> : Choisir un terminal spécifique (ou X est le numéro du terminal)
+<Ctrl> + <b> suivi de <d> : Se détacher de la session tmux (lancer 'tmux a' pour s'y rattacher)
+<Ctrl> + <b> suivi de <,> : Permet de renommer un terminal
+<Ctrl> + <b> suivi de <w> : Affiche la liste des terminaux disponibles
+<Ctrl> + <b> suivi de <t> : Afficher l’heure dans un terminal
+<Ctrl> + <b> suivi de <[> : Permet de scroller ligne/ligne (avec les fleches du clavier ou la souris) ou même page/page avec PgnUP et PgnDOWN, tapez "q" pour quiter ce mode
+Modifier
+##Commandes dans un Split
+<Ctrl> + <b> suivi de <"> : Split vertical du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
+<Ctrl> + <b> suivi de <%> : Split horizontal du terminal courant en deux + ouverture d’un terminal dans le nouveau panel
+<Ctrl> + <b> suivi de <o> : Switcher entre les terminaux splittés
+<Ctrl> + <b> suivi de <espace> : Changer l’organisation visuelle des terminaux splittés
+<Ctrl> + <b> suivi de <Alt> + (flèches directionnelles) : Reduire, agrandir fenêtre du split
+<Ctrl> + <b> suivi de <!> : Convertir un split en terminal seul
+<Ctrl> + <b> suivi de <q> : Afficher les numéros des terminaux splittés
+<Ctrl> + <b> puis saisissez :join : permet de joindre un terminal seul dans un split
+
+
+#Bitbake
+bitbake <package> -c listtasks
+
+
+#git clean
+git clean -f -d
