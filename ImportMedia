@@ -1,0 +1,30 @@
+#!/bin/bash
+INPUT=$1
+OUTPUT=$HOME/Pictures/import/`CreateDateHash`
+
+echo "=== Import Media ==="
+echo "Output directory: $OUTPUT"
+
+mkdir -p $OUTPUT/images
+mkdir -p $OUTPUT/videos
+
+VIDEO_EXT="MTS mts MPEG mpeg"
+IMAGE_EXT="RAW  raw jpeg jpg JPG png PNG"
+
+function copyExt()
+{
+	declare -a argAry1=("${!1}")
+	for ext in ${argAry1[@]}
+	do
+		echo "copy .$ext files"
+		find $INPUT -name "*.$ext" | xargs -I@ cp -v @ $2
+	done	
+}
+
+copyExt VIDEO_EXT $OUTPUT/videos
+copyExt IMAGE_EXT $OUTPUT/images
+
+
+
+
+

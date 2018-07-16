@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DATE=`date "+%Y-%m-%d%__%H:%M:%S"`
+HASH=`cat /dev/random | LC_CTYPE=C tr -dc "[:alpha:]" | head -c 8`
+
+echo ${DATE}_$HASH

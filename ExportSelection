@@ -1,0 +1,22 @@
+#!/bin/bash
+INPUT=$1
+OUTPUT=export/`CreateDateHash`
+
+echo "=== Export Media ==="
+echo "Output directory: $OUTPUT"
+
+mkdir -p $OUTPUT
+
+EXT="RAW  raw jpeg jpg JPG png PNG"
+
+function copyExt()
+{
+	declare -a argAry1=("${!1}")
+	for ext in ${argAry1[@]}
+	do
+		echo "copy .$ext files"
+		find $INPUT -name "*selection*" | xargs -I@ find @ -name "*.$ext" | xargs -I@ cp -v @ $2
+	done	
+}
+
+copyExt EXT $OUTPUT
